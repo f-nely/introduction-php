@@ -2,19 +2,20 @@
 
 include 'header.php';
 include 'menu.php';
+include 'acoes.php';
 
 $url = $_SERVER['REQUEST_URI'];
 
 if ($url === '/') {
-    include 'home.php';
+    home();
 } elseif ($url === '/login') {
-    include 'login.php';
+    login();
 } elseif ($url === '/cadastro') {
-    include 'cadastro.php';
+    cadastro();
 } elseif ($url === '/listar') {
-    include 'listar.php';
+    listar();
 } else {
-    include '404.php';
+    pageNotFound();
 }
 
 include 'footer.php';
