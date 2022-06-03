@@ -24,3 +24,8 @@ function pageNotFound(): void
 {
     include '404.php';
 }
+
+function relatorio(): void
+{
+    include 'relatorio.php';
+}
