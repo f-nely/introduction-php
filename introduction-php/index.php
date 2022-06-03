@@ -11,6 +11,8 @@ if ($url === '/') {
     include 'login.php';
 } elseif ($url === '/cadastro') {
     include 'cadastro.php';
+} elseif ($url === '/listar') {
+    include 'listar.php';
 } else {
     include '404.php';
 }
