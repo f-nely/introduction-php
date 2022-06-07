@@ -67,3 +67,10 @@ function excluir(): void
 
     include 'mensagem.php';
 }
+
+function editar(): void
+{
+    $id = $_GET['id'];
+
+    echo 'Editando...' . $id;
+}
