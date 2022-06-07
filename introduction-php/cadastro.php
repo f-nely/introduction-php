@@ -1,4 +1,4 @@
-<h1>Cadastro</h1>
+<h1>Novo Cadastro</h1>
 <hr>
 <form action="" method="POST">
     <input type="text" name="name" id="name" placeholder="Seu nome" class="form-control mt-2">
