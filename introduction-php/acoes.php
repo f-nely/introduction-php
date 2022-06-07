@@ -14,7 +14,7 @@ function cadastro(): void
         $telefone = $_POST['phone'];
     
         $arquivo = fopen('contatos.csv', 'a+');
-        
+
         fwrite($arquivo, "{$nome};{$email};{$telefone}" . PHP_EOL);
         
         fclose($arquivo);
@@ -46,4 +46,24 @@ function pageNotFound(): void
 function relatorio(): void
 {
     include 'relatorio.php';
+}
+
+function excluir(): void
+{
+    $id = $_GET['id'];
+    
+    $contatos = file('contatos.csv'); // buscar todos os contatos
+    unset($contatos[$id]);
+
+    unlink('contatos.csv');
+
+    $arquivo = fopen('contatos.csv', 'a+');
+
+    foreach ($contatos as $cadaContato) {
+        fwrite($arquivo, $cadaContato);
+    }
+
+    $mensagem = 'Pronto, contato excluido!';
+
+    include 'mensagem.php';
 }
