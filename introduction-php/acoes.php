@@ -72,5 +72,31 @@ function editar(): void
 {
     $id = $_GET['id'];
 
-    echo 'Editando...' . $id;
+    $contatos = file('contatos.csv');
+
+    if ($_POST) {
+        $nome = $_POST['name'];
+        $email = $_POST['email'];
+        $telefone = $_POST['phone'];
+
+        $contatos[$id] = "{$nome}; {$email}; {$telefone}" . PHP_EOL;
+
+        unlink('contatos.csv');
+        
+        $arquivo = fopen('contatos.csv', 'a+');
+
+        foreach ($contatos as $cadaContato) {
+            fwrite($arquivo, $cadaContato);
+        }
+
+        fclose($arquivo);
+
+        $mensagem = 'Pronto, contato atualizado!';
+
+        include 'mensagem.php';
+    }
+
+    $dados = explode(';', $contatos[$id]);
+
+    include 'editar.php';
 }
