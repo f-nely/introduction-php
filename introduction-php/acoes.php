@@ -14,10 +14,14 @@ function cadastro(): void
         $telefone = $_POST['phone'];
     
         $arquivo = fopen('contatos.csv', 'a+');
+        
         fwrite($arquivo, "{$nome};{$email};{$telefone}" . PHP_EOL);
         
         fclose($arquivo);
-        echo 'Pronto, Cadastro realizado!';
+
+        $mensagem = 'Pronto, Cadastro realizado!';
+
+        include 'mensagem.php';
     }
 
     include 'cadastro.php';
