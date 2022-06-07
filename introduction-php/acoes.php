@@ -17,6 +17,7 @@ function home(): void
 
 function listar(): void
 {
+    $contatos = file('contatos.csv');
     include 'listar.php';
 }
 
